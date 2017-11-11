@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
   res.render('home.hbs');
 });
 
+const home = require('./controllers/home');
 
 // Iniciar el servidor:
 app.listen(port, () => {

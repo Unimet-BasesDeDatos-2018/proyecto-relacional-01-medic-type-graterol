@@ -19,10 +19,16 @@
       <div class="col s12 m6 offset-m3">
         <div id="home-card" class="card white darken-1 hoverable">
 
-          <form method="post" action="/cuenta">
+          <form method="post" action="">
             <div class="card-content black-text">
               <span class="card-title">Ingresa a tu cuenta:</span>
-              <label for="cedula"></label>
+              <div class="input-field col s12">
+                <select id="select">
+                  <option value="" disabled selected>Yo soy...</option>
+                  <option value="1">Paciente</option>
+                  <option value="2">Doctor</option>
+                </select>
+              </div>
               <input type="text" name="cedula" placeholder="Cedula" class="validate">
 
               {{#if mensaje }}
@@ -39,34 +45,29 @@
         </div>
       </div>
     </div>
-<!--
-    <style media="screen">
-      body {
-        background: #576d7f;
-      }
-      .card {
-        max-width: 500px;
-      }
-      .nav-wrapper {
-        background: #60c15e;
-      }
-      .brand-logo {
-        margin-left: 15px;
-      }
-      #greeting {
-        color: white;
-        text-align: center;
-        margin: 100px auto;
-      }
-      #nuevaCuenta {
-        margin-left: 10px;
-      }
-    </style> -->
 
     {{> footer}}
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+      $('form').submit(function() {
+
+        let decision = $('#select :selected').text();
+
+        if (decision === 'Paciente') {
+          $('form').attr('action', '/cuenta-paciente');
+        }
+        else if (decision === 'Doctor') {
+          $('form').attr('action', '/cuenta-doctor');
+        }
+
+      });
+    </script>
   </body>
 </html>
