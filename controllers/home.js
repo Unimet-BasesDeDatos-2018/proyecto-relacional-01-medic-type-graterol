@@ -9,3 +9,7 @@ app.post('/cuenta-paciente', (req, res) => {
 app.post('/cuenta-doctor', (req, res) => {
   res.render('cuentaDoctor.hbs');
 });
+
+app.get('/signup', (req, res) => {
+  res.render('signup.hbs');
+});
