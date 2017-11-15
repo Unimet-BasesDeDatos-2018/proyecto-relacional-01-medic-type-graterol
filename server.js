@@ -26,6 +26,14 @@ app.get('/', (req, res) => {
 
 const home = require('./controllers/home');
 
+app.get('/detallePaciente', (req, res) => {
+  res.render('detallePaciente.hbs');
+});
+
+app.get('/verInforme', (req, res) => {
+  res.render('verInforme.hbs');
+});
+
 // Iniciar el servidor:
 app.listen(port, () => {
   console.log(`Server is up on port ${port}.`);
