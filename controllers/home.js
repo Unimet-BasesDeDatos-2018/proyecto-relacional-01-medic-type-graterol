@@ -6,36 +6,83 @@ const app = server.app;
 
 app.post('/cuenta-paciente', (req, res) => {
 
-  let cedulaIngresada = parseInt(req.body.cedula);
+  if (req.body.cedula !== undefined && req.body.cedula !== null) {
 
-  Persona.findOne({where: { Cedula: cedulaIngresada }})
-  .then((persona) => {
-    let idPersona = persona.dataValues.idPersona;
-    let miPersona = persona.dataValues;
+    let cedulaIngresada = parseInt(req.body.cedula);
 
-    Paciente.findOne({where: { idPersona: idPersona }})
-    .then((paciente) => {
+    Persona.findOne({
+      where: {
+        Cedula: cedulaIngresada
+      }
+    }).then((persona) => {
 
-      miPersona.LugarNacimiento = paciente.dataValues.LugarNacimiento;
-      miPersona.TipoSangre = paciente.dataValues.TipoSangre;
-      miPersona.ReferidoPor = paciente.dataValues.ReferidoPor;
+      let idPersona = persona.dataValues.idPersona;
+      let miPersona = persona.dataValues;
 
-      console.log(miPersona);
+      Paciente.findOne({
+        where: {
+          idPersona: idPersona
+        }
+      }).then((paciente) => {
 
-      res.render('cuentaPaciente.hbs', {miPersona});
+        miPersona.LugarNacimiento = paciente.dataValues.LugarNacimiento;
+        miPersona.TipoSangre = paciente.dataValues.TipoSangre;
+        miPersona.ReferidoPor = paciente.dataValues.ReferidoPor;
 
-    })
-    .catch((error) => {
+        console.log(miPersona);
+
+        res.render('cuentaPaciente.hbs', {miPersona});
+
+      }).catch((error) => {
+        console.log(error);
+      });
+    }).catch((error) => {
       console.log(error);
     });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+
+  } else {
+    res.render('home.hbs');
+  }
+
 });
 
 app.post('/cuenta-doctor', (req, res) => {
-  res.render('cuentaDoctor.hbs');
+
+    if (req.body.cedula !== undefined && req.body.cedula !== null) {
+
+      let cedulaIngresada = parseInt(req.body.cedula);
+
+      Persona.findOne({
+        where: {
+          Cedula: cedulaIngresada
+        }
+      }).then((persona) => {
+
+        let idPersona = persona.dataValues.idPersona;
+        let miPersona = persona.dataValues;
+
+        Doctor.findOne({
+          where: {
+            idDoctor: idPersona
+          }
+        }).then((doctor) => {
+
+          miPersona.FechaI = doctor.dataValues.FechaI;
+
+          console.log(miPersona);
+
+          res.render('cuentaDoctor.hbs', {miPersona});
+
+        }).catch((error) => {
+          console.log(error);
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+
+    } else {
+      res.render('home.hbs');
+    }
 });
 
 app.get('/signup', (req, res) => {
