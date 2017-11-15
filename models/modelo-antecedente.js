@@ -10,8 +10,13 @@ let Antecedente = connection.define('Antecedentes',
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    allowNull: false
+    allowNull: false,
+    validate:{
+       isInt: true,
+       len: [0,11]
+    }
   },
+
   idPaciente: {
    type: Sequelize.INTEGER,
    unique: true,
@@ -20,6 +25,10 @@ let Antecedente = connection.define('Antecedentes',
      model: Paciente,
      key: 'idPersona',
      deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+   },
+   validate:{
+      isInt: true,
+      len: [0,11]
    }
  },
   DonadoSangre: {

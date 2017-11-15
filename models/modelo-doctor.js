@@ -15,10 +15,18 @@ let Doctor = connection.define('Doctores',
       key: 'idPersona',
       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
     }
+    validate:{
+       isInt: true,
+       len: [0,11]
+    }
 },
   FechaI: {
     type: Sequelize.DATE,
-    allowNull: false
+    allowNull: false,
+    validate:{
+        isDate: true,
+        isAfter: "1970-01-02"
+    }
   }
 },
 {
