@@ -4,8 +4,9 @@ const Persona = require('./modelo-persona');
 
 const connection = orm.ormConnection;
 
-let Paciente = connection.define('Pacientes', {
-  idPersona: {
+let Doctor = connection.define('Doctores',
+{
+  idDoctor: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     allowNull: false,
@@ -14,18 +15,10 @@ let Paciente = connection.define('Pacientes', {
       key: 'idPersona',
       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
     }
-  },
-  LugarNacimiento: {
-    type: Sequelize.STRING(45),
+},
+  FechaI: {
+    type: Sequelize.DATE,
     allowNull: false
-  },
-  TipoSangre: {
-    type: Sequelize.STRING(45),
-    allowNull: false
-  },
-  ReferidoPor: {
-    type: Sequelize.STRING(45),
-    defaultValue: null
   }
 },
 {
@@ -34,4 +27,4 @@ let Paciente = connection.define('Pacientes', {
 }
 );
 
-module.exports = Paciente;
+module.exports = Doctor;

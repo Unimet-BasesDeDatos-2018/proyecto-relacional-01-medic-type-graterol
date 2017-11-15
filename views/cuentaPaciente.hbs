@@ -22,20 +22,31 @@
 
           <div class="card-content">
             <h4>Paciente</h4>
-            <h5>Nombre:</h5>
-            <p>{{ Paciente.Nombre }}</p>
             <h5>Cedula:</h5>
-            <p>{{ Paciente.Cedula }}</p>
-            <h5>Fecha de Nacimiento:</h5>
-            <p>{{ Paciente.FechaN }}</p>
-            <h5>Alergias:</h5>
+            <p>{{ miPersona.Cedula }}</p>
+            <h5>Nombre:</h5>
+            <p>{{ miPersona.Nombre }}</p>
 
-            {{#if Paciente.Alergias }}
-              <p>{{ Paciente.Alergias }}</p>
-            {{else}}
-              <p>Ninguna</p>
+            {{#if miPersona.Snombre }}
+            <h5>Segundo Nombre: </h5>
+            <p>{{ miPersona.Snombre }}</p>
             {{/if}}
 
+            <h5>Apellido:</h5>
+            <p>{{ miPersona.Apellido }}</p>
+            <h5>Sexo: </h5>
+            <p>{{ miPersona.Sexo }}</p>
+            <h5>Fecha de Nacimiento: </h5>
+            <p>{{ miPersona.FechaNacimiento }}</p>
+            <h5>Lugar de Nacimiento: </h5>
+            <p>{{ miPersona.LugarNacimiento }} </p>
+            <h5>Tipo de Sangre: </h5>
+            <p>{{ miPersona.TipoSangre }}</p>
+
+            {{#if miPersona.ReferidoPor }}
+            <h5>Referido Por: </h5>
+            <p>{{ miPersona.ReferidoPor }}</p>
+            {{/if}}
           </div>
 
           <div class="card-Informes">

@@ -1,10 +1,37 @@
 const server = require('./../server');
 const Persona = require('./../models/modelo-persona');
-
+const Paciente = require('./../models/modelo-paciente');
+const Doctor = require('./../models/modelo-doctor');
 const app = server.app;
 
 app.post('/cuenta-paciente', (req, res) => {
-  res.render('cuentaPaciente.hbs');
+
+  let cedulaIngresada = parseInt(req.body.cedula);
+
+  Persona.findOne({where: { Cedula: cedulaIngresada }})
+  .then((persona) => {
+    let idPersona = persona.dataValues.idPersona;
+    let miPersona = persona.dataValues;
+
+    Paciente.findOne({where: { idPersona: idPersona }})
+    .then((paciente) => {
+
+      miPersona.LugarNacimiento = paciente.dataValues.LugarNacimiento;
+      miPersona.TipoSangre = paciente.dataValues.TipoSangre;
+      miPersona.ReferidoPor = paciente.dataValues.ReferidoPor;
+
+      console.log(miPersona);
+
+      res.render('cuentaPaciente.hbs', {miPersona});
+
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 });
 
 app.post('/cuenta-doctor', (req, res) => {
@@ -14,14 +41,3 @@ app.post('/cuenta-doctor', (req, res) => {
 app.get('/signup', (req, res) => {
   res.render('signup.hbs');
 });
-
-// Persona.create({
-//   idPersona: 1,
-//   Cedula: 24556891,
-//   Nombre: 'Pedro',
-//   Snombre: 'Ignacio',
-//   Apellido: 'Paramo',
-//   Sexo: 'Masculino',
-//   FechaNacimiento: new Date(1990, 0, 12, 0, 0, 0, 0), // new Date(year, month, date, hours, minutes, seconds, milliseconds);
-//   Activo: true
-// });
