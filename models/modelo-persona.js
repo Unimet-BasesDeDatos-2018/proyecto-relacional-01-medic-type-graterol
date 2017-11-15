@@ -8,9 +8,9 @@ let Persona = connection.define('Personas', {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    allowNull: false
+    allowNull: false,
 
-    validate:{
+    validate: {
        isInt: true,
         len: [0,11]
     }
@@ -29,7 +29,7 @@ let Persona = connection.define('Personas', {
 
   Nombre: {
     type: Sequelize.STRING(45),
-    allowNull: false
+    allowNull: false,
 
     validate:{
       isAlpha: true,
@@ -39,7 +39,7 @@ let Persona = connection.define('Personas', {
 
   Snombre: {
     type: Sequelize.STRING(45),
-    defaultValue: null
+    defaultValue: null,
 
     validate:{
       isAlpha: true
@@ -48,7 +48,7 @@ let Persona = connection.define('Personas', {
 
   Apellido: {
     type: Sequelize.STRING(45),
-    allowNull: false
+    allowNull: false,
 
     validate:{
       isAlpha: true,
@@ -58,7 +58,7 @@ let Persona = connection.define('Personas', {
 
   Sexo: {
     type: Sequelize.STRING(10),
-    allowNull: false
+    allowNull: false,
 
     validate:{
       isAlpha: true,

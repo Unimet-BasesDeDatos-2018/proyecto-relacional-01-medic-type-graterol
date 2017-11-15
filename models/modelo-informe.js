@@ -11,7 +11,7 @@ let Inoforme = connection.define('Informes',
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    allowNull: false
+    allowNull: false,
 
     validate:{
        isInt: true,
@@ -25,7 +25,7 @@ let Inoforme = connection.define('Informes',
      model: Paciente,
      key: 'idPersona',
      deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-   }
+   },
    validate:{
       isInt: true,
       len: [0,11]
@@ -38,7 +38,7 @@ let Inoforme = connection.define('Informes',
     model: Doctor,
     key: 'idDoctor',
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-  }
+  },
   validate:{
      isInt: true,
      len: [0,11]
@@ -54,7 +54,7 @@ let Inoforme = connection.define('Informes',
   },
   Indicaciones: {
     type: Sequelize.STRING(45),
-    allowNull: false
+    allowNull: false,
 
     validate:{
       notEmpty: true

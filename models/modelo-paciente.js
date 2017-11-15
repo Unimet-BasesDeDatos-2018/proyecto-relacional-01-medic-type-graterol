@@ -13,7 +13,7 @@ let Paciente = connection.define('Pacientes', {
       model: Persona,
       key: 'idPersona',
       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-    }
+    },
 
     validate:{
        isInt: true,
@@ -23,7 +23,7 @@ let Paciente = connection.define('Pacientes', {
 
   LugarNacimiento: {
     type: Sequelize.STRING(45),
-    allowNull: false
+    allowNull: false,
 
     validate:{
       isAlpha: true,
@@ -33,7 +33,7 @@ let Paciente = connection.define('Pacientes', {
 
   TipoSangre: {
     type: Sequelize.STRING(45),
-    allowNull: false
+    allowNull: false,
 
     validate:{
       isIn: [['A+','A-','B+','B-','AB+','AB-','O+','O-']]
@@ -41,7 +41,7 @@ let Paciente = connection.define('Pacientes', {
   },
   ReferidoPor: {
     type: Sequelize.STRING(45),
-    defaultValue: null
+    defaultValue: null,
 
     validate:{
       isAlpha: true,

@@ -14,7 +14,7 @@ let Doctor = connection.define('Doctores',
       model: Persona,
       key: 'idPersona',
       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-    }
+    },
     validate:{
        isInt: true,
        len: [0,11]
