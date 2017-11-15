@@ -2,6 +2,7 @@ const server = require('./../server');
 const Persona = require('./../models/modelo-persona');
 const Paciente = require('./../models/modelo-paciente');
 const Doctor = require('./../models/modelo-doctor');
+const Informes = require('./../models/modelo-informe');
 const app = server.app;
 
 app.post('/cuenta-paciente', (req, res) => {
@@ -29,7 +30,18 @@ app.post('/cuenta-paciente', (req, res) => {
         miPersona.TipoSangre = paciente.dataValues.TipoSangre;
         miPersona.ReferidoPor = paciente.dataValues.ReferidoPor;
 
-        console.log(miPersona);
+        // console.log(miPersona);
+
+        Informes.findAll({
+          where: {
+            idPersona: idPersona
+          }
+        }).then((informes) => {
+          console.log(informes);
+        });
+
+
+
 
         res.render('cuentaPaciente.hbs', {miPersona});
 
@@ -69,7 +81,7 @@ app.post('/cuenta-doctor', (req, res) => {
 
           miPersona.FechaI = doctor.dataValues.FechaI;
 
-          console.log(miPersona);
+          // console.log(miPersona);
 
           res.render('cuentaDoctor.hbs', {miPersona});
 
