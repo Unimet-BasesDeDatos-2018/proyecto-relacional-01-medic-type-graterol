@@ -1,6 +1,8 @@
 const Persona = require('./../models/modelo-persona');
 const Paciente = require('./../models/modelo-paciente');
 const Doctor = require('./../models/modelo-doctor');
+const Especialidad = require('./../models/modelo-especialidad');
+const Doctor_t_Especialidad = require('./../models/Doctor_t_Especialidad');
 
 // Persona.create({
 //   idPersona: 2,
@@ -23,4 +25,38 @@ const Doctor = require('./../models/modelo-doctor');
 // Doctor.create({
 //   idDoctor: 2,
 //   FechaI: new Date(2005, 0, 15, 0, 0, 0, 0)
+// });
+
+// CREA TODAS LAS ESPECIALIDADES
+// Especialidad.bulkCreate([
+//   {
+//     idEspecialidad: 1,
+//     Especialidad: 'Pediatria'
+//   },
+//   {
+//     idEspecialidad: 2,
+//     Especialidad: 'Dermatologia'
+//   },
+//   {
+//     idEspecialidad: 3,
+//     Especialidad: 'Cardiologia'
+//   },
+//   {
+//     idEspecialidad: 4,
+//     Especialidad: 'Cirugia'
+//   },
+//   {
+//     idEspecialidad: 5,
+//     Especialidad: 'Oftalmologia'
+//   },
+//   {
+//     idEspecialidad: 6,
+//     Especialidad: 'Traumatologia'
+//   }
+// ]);
+
+
+// Doctor_t_Especialidad.create({
+//   idDoctor: 2,
+//   idEspecialidad: 1
 // });
