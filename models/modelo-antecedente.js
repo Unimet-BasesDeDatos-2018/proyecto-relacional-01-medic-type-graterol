@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const orm = require('./../controllers/orm-connection');
+const Paciente = require('./modelo-paciente');
 
 const connection = orm.ormConnection;
 
@@ -16,7 +17,7 @@ let Antecedente = connection.define('Antecedentes',
    unique: true,
    allowNull: false,
    references: {
-     model: modelo-paciente,
+     model: Paciente,
      key: 'idPersona',
      deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
    }

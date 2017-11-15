@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const orm = require('./../controllers/orm-connection');
+const Paciente = require('./modelo-paciente');
+const Doctor = require('./modelo-doctor');
 
 const connection = orm.ormConnection;
 
@@ -15,7 +17,7 @@ let Inoforme = connection.define('Informes',
    type: Sequelize.INTEGER,
    allowNull: false,
    references: {
-     model: modelo-paciente,
+     model: Paciente,
      key: 'idPersona',
      deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
    }
@@ -24,7 +26,7 @@ let Inoforme = connection.define('Informes',
   type: Sequelize.INTEGER,
   allowNull: false,
   references: {
-    model: modelo-doctor,
+    model: Doctor,
     key: 'idDoctor',
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
   }
