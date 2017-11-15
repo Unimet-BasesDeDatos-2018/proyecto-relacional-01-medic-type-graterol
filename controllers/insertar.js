@@ -3,6 +3,7 @@ const Paciente = require('./../models/modelo-paciente');
 const Doctor = require('./../models/modelo-doctor');
 const Especialidad = require('./../models/modelo-especialidad');
 const Doctor_t_Especialidad = require('./../models/Doctor_t_Especialidad');
+const Informe = require ('./../models/modelo-informe');
 
 // Persona.create({
 //   idPersona: 2,
@@ -60,3 +61,34 @@ const Doctor_t_Especialidad = require('./../models/Doctor_t_Especialidad');
 //   idDoctor: 2,
 //   idEspecialidad: 1
 // });
+
+
+Informe.bulkCreate([
+  {
+    idInforme: 1,
+    idPaciente: 1,
+    idDoctor: 2,
+    Fecha: new Date(2015, 1, 15, 0, 0, 0, 0),
+    Indicaciones: 'Dejar de fumar',
+    Temperatura: '35 C',
+    FCardiaca:'84 PPM'
+  },
+  {
+    idInforme: 2,
+    idPaciente: 1,
+    idDoctor: 2,
+    Fecha: new Date(2016, 1, 15, 0, 0, 0, 0),
+    Indicaciones: 'Empezar a hacer ejercicios',
+    Temperatura: ' 34.4 C',
+    FCardiaca:'90 PPM'
+  },
+  {
+    idInforme: 3,
+    idPaciente: 1,
+    idDoctor: 2,
+    Fecha: new Date(2017, 1, 15, 0, 0, 0, 0),
+    Indicaciones: 'Hacerse examenes de sangre',
+    Temperatura: '37 C',
+    FCardiaca:'87 PPM'
+  }
+]);
