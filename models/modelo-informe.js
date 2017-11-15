@@ -5,7 +5,7 @@ const Doctor = require('./modelo-doctor');
 
 const connection = orm.ormConnection;
 
-let Inoforme = connection.define('Informes',
+let Informe = connection.define('Informes',
 {
   idInforme: {
     type: Sequelize.INTEGER,
@@ -30,7 +30,7 @@ let Inoforme = connection.define('Informes',
       isInt: true,
       len: [0,11]
    }
- }
+ },
  idDoctor: {
   type: Sequelize.INTEGER,
   allowNull: false,
