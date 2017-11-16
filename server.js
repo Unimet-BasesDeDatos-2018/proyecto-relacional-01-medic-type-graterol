@@ -25,13 +25,10 @@ app.get('/', (req, res) => {
 });
 
 const home = require('./controllers/home');
+const verInforme = require('./controllers/verInforme');
 
 app.get('/detallePaciente', (req, res) => {
   res.render('detallePaciente.hbs');
-});
-
-app.get('/verInforme', (req, res) => {
-  res.render('verInforme.hbs');
 });
 
 // Iniciar el servidor:

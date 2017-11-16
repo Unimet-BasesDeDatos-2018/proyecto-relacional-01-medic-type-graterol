@@ -34,16 +34,20 @@ app.post('/cuenta-paciente', (req, res) => {
 
         Informes.findAll({
           where: {
-            idPersona: idPersona
+            idPaciente: miPersona.idPersona
           }
         }).then((informes) => {
-          console.log(informes);
+
+            arrInformes = [];
+
+            for (let i=0; i < informes.length; i++) {
+              arrInformes[i] = informes[i].dataValues;
+            }
+
+            miPersona.informes = arrInformes;
+            console.log(miPersona);
+            res.render('cuentaPaciente.hbs', {miPersona});
         });
-
-
-
-
-        res.render('cuentaPaciente.hbs', {miPersona});
 
       }).catch((error) => {
         console.log(error);
