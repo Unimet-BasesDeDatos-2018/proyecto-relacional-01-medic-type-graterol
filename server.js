@@ -24,12 +24,13 @@ app.get('/', (req, res) => {
   res.render('home.hbs');
 });
 
-const home = require('./controllers/home');
-const verInforme = require('./controllers/verInforme');
-
 app.get('/detallePaciente', (req, res) => {
   res.render('detallePaciente.hbs');
 });
+
+const home = require('./controllers/home');
+const signup = require('./controllers/signup');
+const verInforme = require('./controllers/verInforme');
 
 // Iniciar el servidor:
 app.listen(port, () => {

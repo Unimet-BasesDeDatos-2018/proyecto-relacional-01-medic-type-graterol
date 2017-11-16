@@ -14,7 +14,7 @@
     {{> header}}
 
     <div class="col s12 m6 offset-m3">
-      <h2 class="header">Informe Paciente</h2>
+      <h2 class="header" id="greeting">Informe Paciente</h2>
       <div class="card horizontal">
         <div class="card-image">
           <img src="http://www.marismith.com/wp-content/uploads/2014/07/facebook-profile-blank-face.jpeg">
@@ -23,33 +23,30 @@
           <div class="card-content">
 
             <h5>Doctor:</h5>
+            <p>{{ miInforme.nombreDoctor }}</p>
             <h5>Fecha de Informe:</h5>
+            <p>{{ miInforme.Fecha }}</p>
 
             <h5>Cedula:</h5>
-            <p>{{ miPersona.Cedula }}</p>
+            <p>{{ miInforme.cedulaPaciente }}</p>
             <h5>Nombre:</h5>
-            <p>{{ miPersona.Nombre }}</p>
-            {{#if miPersona.Snombre }}
-            <h5>Segundo Nombre: </h5>
-            <p>{{ miPersona.Snombre }}</p>
-            {{/if}}
-            <h5>Apellido:</h5>
-            <p>{{ miPersona.Apellido }}</p>
+            <p>{{ miInforme.nombrePaciente }}</p>
             <h5>Sexo: </h5>
-            <p>{{ miPersona.Sexo }}</p>
+            <p>{{ miInforme.sexoPaciente }}</p>
             <h5>Fecha de Nacimiento: </h5>
-            <p>{{ miPersona.FechaNacimiento }}</p>
+            <p>{{ miInforme.fechaPaciente }}</p>
             <h5>Tipo de Sangre: </h5>
-            <p>{{ miPersona.TipoSangre }}</p>
+            <p>{{ miInforme.sangrePaciente }}</p>
 
             <h5>Indicaciones:</h5>
+            <p>{{ miInforme.Indicaciones }}</p>
             <h5>Temperatura:</h5>
+            <p>{{ miInforme.Temperatura }}</p>
             <h5>Frecuencia Cardiaca:</h5>
+            <p>{{ miInforme.FCardiaca }}</p>
             <h5>Notas:</h5>
+            <p>{{ miInforme.Notas }}</p>
 
-          </div>
-          <div class="card-action">
-            <a href="#">Regresar</a>
           </div>
         </div>
       </div>

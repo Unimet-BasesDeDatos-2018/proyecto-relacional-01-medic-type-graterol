@@ -51,9 +51,13 @@ app.post('/cuenta-paciente', (req, res) => {
 
       }).catch((error) => {
         console.log(error);
+        req.url = '/';
+        res.render('home.hbs');
       });
     }).catch((error) => {
       console.log(error);
+      req.url = '/';
+      res.render('home.hbs');
     });
 
   } else {
@@ -134,9 +138,11 @@ app.post('/cuenta-doctor', (req, res) => {
 
         }).catch((error) => {
           console.log(error);
+          res.render('home.hbs');
         });
       }).catch((error) => {
         console.log(error);
+        res.render('home.hbs');
       });
 
     } else {

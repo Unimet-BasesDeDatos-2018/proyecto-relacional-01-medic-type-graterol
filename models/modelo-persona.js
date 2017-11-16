@@ -39,11 +39,8 @@ let Persona = connection.define('Personas', {
 
   Snombre: {
     type: Sequelize.STRING(45),
-    defaultValue: null,
+    defaultValue: null
 
-    validate:{
-      isAlpha: true
-    }
   },
 
   Apellido: {
