@@ -63,7 +63,7 @@ let Persona = connection.define('Personas', {
     validate:{
       isAlpha: true,
       notEmpty: true,
-      isIn: [['H', 'M']]
+      isIn: [['Masculino', 'Femenino']]
     }
   },
 
