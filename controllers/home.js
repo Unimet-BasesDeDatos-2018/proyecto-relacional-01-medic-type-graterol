@@ -38,7 +38,7 @@ app.post('/cuenta-paciente', (req, res) => {
           }
         }).then((informes) => {
 
-            arrInformes = [];
+            let arrInformes = [];
 
             for (let i=0; i < informes.length; i++) {
               arrInformes[i] = informes[i].dataValues;
@@ -87,7 +87,50 @@ app.post('/cuenta-doctor', (req, res) => {
 
           // console.log(miPersona);
 
-          res.render('cuentaDoctor.hbs', {miPersona});
+          Informes.findAll({
+            where: {
+              idDoctor: miPersona.idPersona
+            }
+          }).then((informes) => {
+
+              let arrInformes = [];
+
+              for (let i=0; i < informes.length; i++) {
+                arrInformes[i] = informes[i].dataValues;
+              }
+
+              let arrIdPacientes = [];
+
+              for (let i=0; i < arrInformes.length; i++) {
+                arrIdPacientes[i] = arrInformes[i].idPaciente;
+              }
+
+              console.log(arrIdPacientes);
+
+              let uniquePacientes = arrIdPacientes.filter(function(elem, index, self) {
+                return index == self.indexOf(elem);
+              });
+
+              console.log(uniquePacientes);
+
+              // for (let j=0; j < arrInformes.length; j++) {
+              //   Persona.findOne({
+              //     where: {
+              //       idPersona: arrInformes[j].idPaciente
+              //     }
+              //   }).then((persona) => {
+              //     arrInformes[j].nombrePaciente = `${ persona.dataValues.Nombre } ${ persona.dataValues.Apellido }`;
+              //   });
+              // }
+
+
+
+              miPersona.arrInformes = arrInformes;
+              miPersona.pacientesUnico = uniquePacientes;
+
+              console.log(miPersona);
+              res.render('cuentaDoctor.hbs', {miPersona});
+          });
 
         }).catch((error) => {
           console.log(error);

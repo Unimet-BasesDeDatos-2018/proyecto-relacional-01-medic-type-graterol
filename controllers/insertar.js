@@ -93,6 +93,49 @@ const Informe = require ('./../models/modelo-informe');
 //   }
 // ]);
 
+// Informe.bulkCreate([
+//   {
+//     idInforme: 4,
+//     idPaciente: 8,
+//     idDoctor: 3,
+//     Fecha: new Date(2015, 1, 15, 0, 0, 0, 0),
+//     Indicaciones: 'Dejar de fumar',
+//     Temperatura: '35 C',
+//     FCardiaca:'84 PPM',
+//     Notas: 'Unas notas importantes'
+//   },
+//   {
+//     idInforme: 5,
+//     idPaciente: 9,
+//     idDoctor: 4,
+//     Fecha: new Date(2016, 1, 15, 0, 0, 0, 0),
+//     Indicaciones: 'Empezar a hacer ejercicios',
+//     Temperatura: ' 34.4 C',
+//     FCardiaca:'90 PPM',
+//     Notas: 'Unas notas importantes'
+//   },
+//   {
+//     idInforme: 6,
+//     idPaciente: 9,
+//     idDoctor: 4,
+//     Fecha: new Date(2017, 1, 15, 0, 0, 0, 0),
+//     Indicaciones: 'Hacerse examenes de sangre',
+//     Temperatura: '37 C',
+//     FCardiaca:'87 PPM',
+//     Notas: 'Unas notas importantes'
+//   },
+//   {
+//     idInforme: 7,
+//     idPaciente: 10,
+//     idDoctor: 5,
+//     Fecha: new Date(2017, 1, 15, 0, 0, 0, 0),
+//     Indicaciones: 'Hacerse examenes de sangre',
+//     Temperatura: '37 C',
+//     FCardiaca:'87 PPM',
+//     Notas: 'Unas notas importantes'
+//   }
+// ]);
+
 // Persona.bulkCreate([
 // {
 //   idPersona: 3,
